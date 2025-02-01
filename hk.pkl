@@ -1,0 +1,18 @@
+// amends "package://hk.jdx.dev/hk@0.1.0#/config.pkl"
+amends "pkl/config.pkl"
+
+pre_commit {
+    new {
+        ["prettier"] {}
+        ["eslint"] {}
+        ["rustfmt"] {
+            glob = new { "*.rs" }
+            file_types = new { "rust" }
+        }
+    }
+    new {
+        ["custom"] {
+            run = "echo 'custom'"
+        }
+    }
+}
